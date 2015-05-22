@@ -41,7 +41,7 @@ for i=1:length(pos.x)
     backProj_x(pos.y(i),pos.x(i))=pre.y(i);
     backProj_y(pos.y(i),pos.x(i))=pre.x(i);
 end
-
+%figure,imshow(frontProj_x);
 OO=im2bw(backProj_x);
 imwrite(OO,'./img/point_sp_filter.bmp');
 
@@ -74,12 +74,18 @@ for i=start_x:h_step:end_x-h_step
         rb_x=h_more;
         rb_y=w_more;
         % get the transformation vector
-        tar_x=[lu_x;ru_x;lb_x;rb_x];
-        tar_y=[lu_y;ru_y;lb_y;rb_y];
-        M=[frontProj_x(lu_x,lu_y),frontProj_y(lu_x,lu_y),frontProj_x(lu_x,lu_y)*frontProj_x(lu_x,lu_y),1;
-            frontProj_x(ru_x,ru_y),frontProj_y(ru_x,ru_y),frontProj_x(ru_x,ru_y)*frontProj_y(ru_x,ru_y),1;
-            frontProj_x(lb_x,lb_y),frontProj_y(lb_x,lb_y),frontProj_x(lb_x,lb_y)*frontProj_y(lb_x,lb_y),1;
-            frontProj_x(rb_x,rb_y),frontProj_y(rb_x,rb_y),frontProj_x(rb_x,rb_y)*frontProj_y(rb_x,rb_y),2];
+        %tar_x=[lu_x;ru_x;lb_x;rb_x];
+        %tar_y=[lu_y;ru_y;lb_y;rb_y];
+        %M=[frontProj_x(lu_x,lu_y),frontProj_y(lu_x,lu_y),frontProj_x(lu_x,lu_y)*frontProj_x(lu_x,lu_y),1;
+        %    frontProj_x(ru_x,ru_y),frontProj_y(ru_x,ru_y),frontProj_x(ru_x,ru_y)*frontProj_y(ru_x,ru_y),1;
+        %    frontProj_x(lb_x,lb_y),frontProj_y(lb_x,lb_y),frontProj_x(lb_x,lb_y)*frontProj_y(lb_x,lb_y),1;
+        %    frontProj_x(rb_x,rb_y),frontProj_y(rb_x,rb_y),frontProj_x(rb_x,rb_y)*frontProj_y(rb_x,rb_y),1];
+        tar_x=[frontProj_x(lu_x,lu_y);frontProj_x(ru_x,ru_y);frontProj_x(lb_x,lb_y);frontProj_x(rb_x,rb_y)];
+        tar_y=[frontProj_y(lu_x,lu_y);frontProj_y(ru_x,ru_y);frontProj_y(lb_x,lb_y);frontProj_y(rb_x,rb_y)];
+        M=[lu_x,lu_y,lu_x*lu_y,1;
+            ru_x,ru_y,ru_x*ru_y,1;
+            lb_x,lb_y,lb_x*lb_y,1;
+            rb_x,rb_y,rb_x*rb_y,1];
         M_inverse=inv(M);
         paramX=M_inverse*tar_x;
         paramY=M_inverse*tar_y;       
