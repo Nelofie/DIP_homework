@@ -11,4 +11,5 @@
 + 实现中，边缘处没有哦加上控制点
 + 如果想要改变控制点，可以运行im_register，手动标记控制点，注意对对靶图像的标注必须按照相同的顺序用于对准。如果标记失误，可以将./img/下的备份的pos.mat和pre.mat拷贝到当前目录下执行。
 + 已经在OSX10.10.3+Matlab Unix 2014b 以及 windows7+Matlab 2015a上测试过
-+ 运行截图见./img/result.jpg
++ 运行截图为./img/result.jpg
+![jpg](./img/result.jpg)
