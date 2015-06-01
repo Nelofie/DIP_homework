@@ -1,0 +1,36 @@
+function Gradient=MaskEdge(gray,mask)
+[mh,mw]=size(mask);
+[height,width]=size(gray);
+Gradient=zeros(height,width);
+if(mh==2)
+    UR=zeros(height,width);
+    BL=UR;
+    BR=UR;
+    UR(:,1:width-1)=gray(:,2:width);
+    BL(1:height-1,:)=gray(2:height,:);
+    BR(1:height-1,1:width-1)=gray(2:height,2:width);
+    Gradient=abs(UR*mask(1,2)+BL*mask(2,1)+BR*mask(2,2));
+    return;
+end
+if(mh==3)
+    UL=zeros(height,width);
+    U=UL;
+    UR=UL;
+    L=UL;
+    C=gray;
+    R=UL;
+    BL=UL;
+    B=UL;
+    BR=UL;
+    UL(2:height,2:width)=gray(1:height-1,1:width-1);
+    U(2:height,:)=gray(1:height-1,:);
+    UR(2:height,1:width-1)=gray(1:height-1,2:width);
+    L(:,2:width)=gray(:,1:width-1);
+    R(:,1:width-1)=gray(:,2:width);
+    BL(1:height-1,2:width)=gray(2:height,1:width-1);
+    B(1:height-1,:)=gray(2:height,:);
+    BR(1:height-1,1:width-1)=gray(2:height,2:width);
+    Gradient=abs(UL*mask(1,1)+U*mask(1,2)+UR*mask(1,3)+L*mask(2,1)+C*mask(2,2)+R*mask(2,3)+BL*mask(3,1)+B*mask(3,2)+BR*mask(3,3));    
+    return;
+end
+end
