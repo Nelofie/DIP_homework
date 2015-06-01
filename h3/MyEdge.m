@@ -49,7 +49,7 @@ elseif(strcmp(method,'marr'))
     end
     t1=0.1;
     bw=im2bw(Gradient,t1);
-    bw=bwmorph(bw,'remove');
+    bw=bwmorph(bw,'skel');
 elseif(strcmp(method,'canny'))
     bw=cannyEdge(I);
 else
