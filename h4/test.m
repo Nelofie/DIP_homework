@@ -33,6 +33,6 @@ fprintf('matlab bwhitmiss vs. MyBwmorph(operation=hitmiss). Is equal? %d\n',iseq
 % call MyBwthin
 word_bw=im2bw(imread('word_bw.bmp'));
 word_thin=MyBwthin(word_bw);
-imwrite(word_thin,'word_thin.png');
+imwrite(word_thin,'word_thin.jpg');
 figure,imshow(word_thin);
 
