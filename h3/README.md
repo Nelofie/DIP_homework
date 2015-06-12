@@ -9,8 +9,13 @@
 实验结果如下：
 
 原图像：![jpg](./img/MU.jpg)
+
 roberts：![jpg](./img/roberts.jpg)
+
 prewitt：![jpg](./img/prewitt.jpg)
+
 sobel：![jpg](./img/sobel.jpg)
+
 marr：![jpg](./img/marr.jpg)
+
 canny：![jpg](./img/canny.jpg)
