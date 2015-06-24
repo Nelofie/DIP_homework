@@ -5,3 +5,8 @@
 + 实验图像： lena_noise.bmp， lena_blur.bmp
 
 ## Implementation
+
++ 运行test.m查看滤波器
++ 关于参数请查看help
++ 伪彩色调用MyPseudo_color.m
+

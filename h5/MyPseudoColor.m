@@ -1,5 +1,6 @@
 clear;
 gray=imread('./imgs/lp_EXP_50.bmp');
+% gray=imread('./imgs/hp_EXP_5.bmp');
 gray=double(gray);
 J=fft2(gray);
 J=fftshift(J);
@@ -25,6 +26,7 @@ B1=B.*J;
 R=ifftshift(R1);
 G=ifftshift(G1);
 B=ifftshift(B1);
+% R1=uint8(real(ifft2(R)+gray));
 R1=uint8(real(ifft2(R)+gray));
 G1=uint8(real(ifft2(G)));
 B1=uint8(real(ifft2(B)));
