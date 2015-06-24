@@ -28,7 +28,6 @@ for x=1:1:M
     end
 end
 F=fft2(fc,P,Q);
-
 %% frequency transformation
 if(strcmp(METHOD,'hp')==1)
     H=ones(P,Q);
@@ -168,9 +167,9 @@ G= H.* F;
 %% Fourier inverse transform
 g=real(ifft2(G));
 g=g(1:1:M,1:1:N);
-for x = 1:1:M
-    for y = 1:1:N
-        g(x,y) = g(x,y) * (-1)^(x+y);
+for x=1:1:M
+    for y=1:1:N
+        g(x,y)=g(x,y)*(-1)^(x+y);
     end
 end
 end
