@@ -15,4 +15,4 @@
 
 + 细化结果如下图
 
-![jpg](./word_thin.png')
+![jpg](./word_thin.jpg)
